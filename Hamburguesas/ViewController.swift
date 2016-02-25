@@ -10,6 +10,14 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var lblPais: UILabel!
+    @IBOutlet weak var lblHamburguesa: UILabel!
+    
+    let paises = ColeccionDePaises()
+    let hamburguesas = ColeccionDeHamburguesa()
+    let colores = Colores()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -20,6 +28,12 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    @IBAction func changeSelection(sender: AnyObject) {
+        lblPais.text = "Pais: \(paises.obtenPais())"
+        lblHamburguesa.text = "Hamburguesa: \(hamburguesas.obtenHamburguesa())"
+        view.backgroundColor = colores.getColorRandom()
+        view.tintColor = colores.getColorRandom()
+    }
 
 }
 
